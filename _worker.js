@@ -200,7 +200,7 @@ export default {
 
                     default:
                         // return new Response('Not found', { status: 404 });
-                        url.hostname = 'www.speedtest.net';
+                        url.hostname = ''; //www.speedtest.net';
                         url.protocol = 'https:';
                         request = new Request(url, request);
                         return await fetch(request);
@@ -792,7 +792,7 @@ const getNormalConfigs = async (env, hostName, client) => {
     const resolved = await resolveDNS(hostName);
     const Addresses = [
         hostName,
-        'www.speedtest.net',
+        //'www.speedtest.net',
         ...resolved.ipv4,
         ...resolved.ipv6.map((ip) => `[${ip}]`),
         ...(cleanIPs ? cleanIPs.split(',') : [])
@@ -1030,7 +1030,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     const resolved = await resolveDNS(hostName);
     const Addresses = [
         hostName,
-        "www.speedtest.net",
+        //"www.speedtest.net",
         ...resolved.ipv4,
         ...resolved.ipv6.map((ip) => `[${ip}]`),
         ...(cleanIPs ? cleanIPs.split(",") : [])
@@ -1207,7 +1207,7 @@ const getSingboxConfig = async (env, hostName) => {
     const resolved = await resolveDNS(hostName);
     const Addresses = [
         hostName,
-        "www.speedtest.net",
+        //"www.speedtest.net",
         ...resolved.ipv4,
         ...resolved.ipv6.map((ip) => `[${ip}]`),
         ...(cleanIPs ? cleanIPs.split(",") : [])
